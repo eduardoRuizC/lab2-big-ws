@@ -10,6 +10,8 @@ import translator.Application;
 import translator.domain.TranslatedText;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @RunWith(SpringRunner.class)
@@ -21,8 +23,11 @@ public class TranslatorServiceTest {
 
   @Test
   public void translateTest() {
-    TranslatedText translatedText = translatorService.translate("en", "es", "This is a test of translation service");
-    assertEquals("I don't know how to translate from en to es the text 'This is a test of translation service'", translatedText.getTranslation());
+    Exception exception = assertThrows(RuntimeException.class, () -> {
+      TranslatedText translatedText = translatorService.translate("en", "es", "This is a test of translation service");
+      translatedText.getTranslation();
+    });
+    assertTrue(exception.getMessage().contains("I don't know how to translate from en to es the text 'This is a test of translation service'"));
   }
 
 }

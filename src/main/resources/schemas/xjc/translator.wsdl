@@ -4,7 +4,7 @@
                   xmlns:translator="http://translator/web/ws/schema"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   targetNamespace="http://translator/web/ws/schema">
-    <wsdl:documentation>Calculator</wsdl:documentation>
+    <wsdl:documentation>Translator</wsdl:documentation>
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
                    targetNamespace="http://translator/web/ws/schema" elementFormDefault="qualified">
@@ -55,7 +55,7 @@
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
-    <wsdl:service name="Calculator">
+    <wsdl:service name="Translator">
         <wsdl:port name="TranslatorHttpsSoap11Endpoint" binding="translator:TranslatorSoap11Binding">
             <soap:address location="https://localhost:8080/ws" />
         </wsdl:port>
