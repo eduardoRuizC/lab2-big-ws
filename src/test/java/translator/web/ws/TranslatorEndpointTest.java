@@ -49,6 +49,7 @@ public class TranslatorEndpointTest {
       GetTranslationResponse translation = (GetTranslationResponse) response;
       translation.getTranslation();
     });
+
     assertTrue(exception.getMessage().contains("I don't know how to translate from en to es the text 'This is a test of translation service'"));
   }
 
